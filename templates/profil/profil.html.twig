@@ -1,0 +1,70 @@
+{% extends 'baselog.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+ {% block main %}
+     <div class="banner-menu container-fluid">
+         <h5 class="h5-custom menu ">Mon profil</h5>
+     </div>
+
+
+     <div class="wrapper fadeInDown">
+         <div id="formContent">
+             <!-- Tabs Titles -->
+
+             <!-- Icon -->
+             <div class="fadeIn first">
+                 <div class="row-login">
+
+
+                     {{ form_start(profilForm) }}
+
+                     <div class="fadeIn second">
+                         {{ form_label (profilForm.username) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_widget(profilForm.username) }}
+                     </div>
+                     <div class="erreur">
+                         {{ form_errors(profilForm.username) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_label(profilForm.email) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_widget(profilForm.email) }}
+                     </div>
+                     <div class="erreur">
+                         {{ form_errors(profilForm.email) }}
+                     </div>
+
+
+                     <div class="fadeIn second">
+                         {{ form_label(profilForm.password) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_widget(profilForm.password) }}
+                     </div>
+                     <div class="erreur">
+                         {{ form_errors(profilForm.password) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_label(profilForm.telephone) }}
+                     </div>
+                     <div class="fadeIn second">
+                         {{ form_widget(profilForm.telephone) }}
+                     </div>
+                     <div class="erreur">
+                         {{ form_errors(profilForm.telephone) }}
+                     </div>
+                 </div>
+             </div>
+
+
+             <a type="button" href="{{ path('modifierProfil') }}" class="btn btn-primary mt-2  mb-3 btn-login">Modifier</a>
+             <a type="button" href="{{ path('main') }}" class="btn btn-primary mt-2  mb-3 btn-login">Retour</a>
+
+         </div>
+     </div>
+     {{ form_end(profilForm) }}
+ {% endblock %}

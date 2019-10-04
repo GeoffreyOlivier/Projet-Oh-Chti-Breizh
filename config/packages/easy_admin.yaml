@@ -1,0 +1,31 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+  site_name: 'Oh ch ti breizh.'
+  entities:
+    Product:
+      class: App\Entity\Product
+      list:
+        fields:
+          - { property: 'image', type: 'image', base_path: 'uploads' }
+          - { property: 'nom'}
+          - { property: 'description'}
+          - { property: 'prix'}
+          - { property: 'region'}
+          - { property: 'categorie', label: 'categorie'}
+      form:
+        fields:
+          - { property: 'imageFile', type: 'file', base_path: 'uploads'  }
+          - { property: 'nom'}
+          - { property: 'description'}
+          - { property: 'prix'}
+          - { property: 'region', label: 'aucune=0 bzh=1 flam=2'}
+          - { property: 'categorie', label: 'categorie'}
+    Utilisateur:
+      class: App\Entity\Utilisateur
+      list:
+        actions: ['-show','-edit','-delete','-new']
+        fields:
+          - { property: 'username'}
+          - { property: 'Telephone'}
+          - { property: 'commande'}
+

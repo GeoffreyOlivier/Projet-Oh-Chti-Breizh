@@ -1,0 +1,79 @@
+<!-- start footer Area -->
+
+
+<footer class="footer-area">
+    <div class="footer-widget-wrap">
+        <div class="container">
+            <div class="row section-gap">
+                <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>Où je suis</h4>
+                        <ul class="hr-list">
+                            <li class="d-flex justify-content-between">
+                                <span>Mardi</span> <span>chantepie</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>Mercredi & vendredi</span> <span>Chartres-de-bretagne</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>Jeudi</span> <span>Bruz</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>Samedi</span> <span>Etrelles</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" offset-1 col-lg-3  col-md-5 col-sm-5">
+                    <div class="single-footer-widget">
+                        <h4>Me contacter </h4>
+                        <p>
+                            De préference de tel heure à tel heure.
+                        </p>
+                        <p class="number">
+                            0650642518
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>Oh ch'ti Breizh</h4>
+
+                        <li class="d-flex justify-content-between">
+                            <a href="{{ path ("cgv") }}">Mentions légales</a><br>
+                        </li>
+
+
+                        <li class="d-flex justify-content-between">
+                            <a href="https://www.facebook.com/Ohchtibreizh/"><img
+                                        src="https://img.icons8.com/wired/64/000000/facebook-new.png"></a>
+                        </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="d-flex justify-content-between">
+                                <a class="nav-item" href="http://localhost/univers/public/gestionproduit/">Gestion produits</a>
+                            </li>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-wrap">
+        <div class="container">
+            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                <p class="col-lg-8 col-mdcol-sm-6 -6 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                <ul class="col-lg-4 col-mdcol-sm-6 -6 social-icons text-right">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- End footer Area -->

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig.' %}
+
+{% block title  %}Panier{% endblock %}
+
+{% block main %}
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Panier</h5>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="card shopping-cart">
+            <div class="card-header bg-dark text-light">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Votre panier
+                <a href="" class="btn btn-outline-light btn-sm pull-right">Retour à la carte</a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-body">
+                <!-- PRODUCT -->
+                {% set somme = 0 %}
+                {% if panier == null %}
+                <div>
+                    Votre panier est vide ! Ajoutez donc un burger !
+                </div>
+                {% endif %}
+                {% for product in products  %}
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-2 text-center">
+                        <img class="img-responsive" src="{{ asset("uploads/") ~ product.image }}" alt="prewiew" >
+                    </div>
+                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                        <h4 class="product-name"><strong>{{ product.nom }}</strong></h4>
+                        <h5>
+                            <small>{{ product.description }}</small>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                            <h6><strong>{{ product.prix }} €<span class="text-muted">x</span></strong></h6>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6">
+                            <form  action="{{ path('panier.ajout',{"id": product.id}) }}"  method="get">
+                                <tr>
+
+                                    <td class="form-inline">
+
+                                        <input  type="number" style="width: 100%" max="10" min="1" name="qte" value="{{  panier[product.id] }}" onchange="this.form.submit()"/>
+                                        &nbsp;<a href="{{ path('panier.suppArticle',{"id": product.id}) }}"><i  class="fa fa-trash"></i></a>
+                                    </td>
+                                    <td>{{ (product.prix * panier[product.id]) }} €</td>
+                                </tr>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+                <!-- END PRODUCT -->
+
+            </div>
+            <div class="card-footer">
+
+                <div class="pull-right" style="margin: 10px">
+                    {% if panier != null %}
+                    <a class="btn btn-primary" role="button"  href="{{ path('panier.supprime') }}">Vider le panier</a>
+                    <a class="btn btn-primary" role="button"  href="{{ path('panier.enregistrement') }}">Valider</a>
+                    {% endif %}
+                    <div class="pull-right" style="margin: 5px">
+                        Total price: <b>{{ somme }} €</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+

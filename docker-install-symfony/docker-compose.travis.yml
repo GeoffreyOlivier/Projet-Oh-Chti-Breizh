@@ -1,0 +1,38 @@
+version: '2'
+services:
+    db:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: catalogue
+            MYSQL_USER: catalogue
+            MYSQL_PASSWORD: catalogue
+    php:
+        build: ./php-fpm
+        expose:
+            - "9000"
+        volumes:
+            - ./catalogue:/var/www/catalogue
+            - ./logs/catalogue:/var/www/catalogue/var/logs
+        links:
+            - db
+    nginx:
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+    elk:
+        image: willdurand/elk
+        ports:
+            - "81:80"
+        volumes:
+            - ./elk/logstash:/etc/logstash
+            - ./elk/logstash/patterns:/opt/logstash/patterns
+        volumes_from:
+            - php
+            - nginx

@@ -1,0 +1,44 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse nav-bar" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="">
+                <a class="nav-item nav-bar" href={{ path("main") }}> Accueil </a>
+            </li>
+            <li class="">
+                <a class="nav-item" href="{{ path("menu") }}">La carte</a>
+            </li>
+            <li class="">
+                <a class="nav-item" href="{{ path("profil") }}">Profil</a>
+            </li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="">
+                    <a class="nav-item" href={{ path("commande") }}>Mes commandes</a>
+                </li>
+            {% endif %}
+            <li class="">
+                <a class="nav-item" href="{{ path("contact") }}">Professionel</a>
+            </li>
+            <li class="">
+            {% if app.user == null %}
+                <a class="nav-login " href="{{ path("login") }}">Se connecter <img src="{{ asset("img/icons8-couleur-48.png") }}" style='width: 1.9em;'></a>
+            {% elseif app.user != null %}
+                <a class="nav-logout " href="{{ path("logout") }}">Se déconnecter <img src="{{ asset("img/icons8-shutdown-96.png") }}" style='width: 1.9em;'></a>
+            {% endif %}
+            </li>
+
+        </ul>
+
+        <a class="nav-item">
+            Oh ch'ti Breizh - Food Truck<br> Spécialités Flamande et bretonne</a>
+        {{ render(controller('App\\Controller\\PanierController::nbArticle')) }}
+
+
+    </div>
+</nav>

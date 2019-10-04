@@ -1,0 +1,8 @@
+<a class="nav-item" href="{{ path("logout") }}"> <span class="badge badge-light">
+        {% if articles == 0 %}
+            0
+        {% else %}
+            {{ articles }}
+        {% endif %}
+    </span></a>
+<img class="img-panier" src="{{ asset("img/panier.png") }}">

@@ -1,0 +1,57 @@
+{% extends 'baselog.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+ {% block main %}
+<div class="jumbotron-fluid-inscription">
+    <h1 style="text-align: center; color: #dfdfdf">Mon Profil</h1>
+</div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <div class="row-login">
+                <h5>Modifier votre profil</h5>
+                {{ form_start(modifierProfilForm) }}
+
+
+                <div class="fadeIn second">
+                    {{ form_label (modifierProfilForm.telephone) }}
+                </div>
+                <div class="fadeIn second">
+                    {{ form_widget(modifierProfilForm.telephone) }}
+                </div>
+                <div class="erreur">
+                    {{ form_errors(modifierProfilForm.telephone) }}
+                </div>
+                <div class="fadeIn second">
+                    {{ form_label(modifierProfilForm.email) }}
+                </div>
+                <div class="fadeIn second">
+                    {{ form_widget(modifierProfilForm.email) }}
+                </div>
+                <div class="erreur">
+                    {{ form_errors(modifierProfilForm.email) }}
+                </div>
+
+
+                <div class="fadeIn second">
+                    {{ form_label(modifierProfilForm.password) }}
+                </div>
+                <div class="fadeIn second">
+                    {{ form_widget(modifierProfilForm.password) }}
+                </div>
+                {{ form_errors(modifierProfilForm.password) }}
+            </div>
+        </div>
+
+
+        <button class="btn btn-primary mt-2  mb-3 btn-login" type="submit">Valider</button>
+        <a type="button" href="{{ path('main') }}" class="btn btn-primary mt-2  mb-3 btn-login">Retour</a>
+
+
+        {{ form_end(modifierProfilForm) }}
+    </div>    </div>
+    {% endblock %}

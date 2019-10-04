@@ -1,0 +1,50 @@
+security:
+    encoders:
+        App\Entity\Utilisateur:
+            algorithm: bcrypt
+          # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+    providers:
+        in_database:
+            entity:
+                class: App\Entity\Utilisateur
+                property: username
+        # used to reload user from session & other features (e.g. switch_user)
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            provider: in_database
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: main
+            logout_on_user_change: true
+            logout:
+                path: logout
+                target: main
+            #            remember_me:
+            #                secret:   '%kernel.secret%'
+            #                lifetime: 604800 # 1 week in seconds
+            #                path:     /
+
+
+
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/gestionproduit, roles: ROLE_ADMIN }
+        - { path: ^/profil,  roles: ROLE_USER }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY}

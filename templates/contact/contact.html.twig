@@ -1,0 +1,168 @@
+{% extends 'baselog.html.twig' %}
+
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Contact</h5>
+    </div>
+    <!-- Start post-content Area -->
+    <section class="post-content-area single-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 sidebar-widgets">
+                    <div class="widget-wrap">
+
+                        <div class="single-sidebar-widget user-info-widget">
+                            <div class="post-thumb"><img src="img\Jo.jpg"></div>
+                            <a href="#"><h4>Geoffroy Buelens</h4></a>
+                            <p>
+                                Senior blog writer
+                            </p>
+                            <ul class="social-links">
+                                <li><a href="https://www.facebook.com/Ohchtibreizh/"><i class="fa fa-facebook"></i></a>
+                                </li>
+
+                            </ul>
+                            <p>
+                                Boot camps have its supporters andit sdetractors. Some people do not understand why you
+                                should have to spend money on boot camp when you can get. Boot camps have itssuppor ters
+                                andits detractors.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post row">
+                        <div class="col-lg-12">
+                            <div class="feature-img">
+                                <img class="img-fluid" src="{{ asset('img/prestation.jpg') }}" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <h3 class="h4-contact">
+                                Vous Cherchez quelqu'un pour nourrir vos invités pour un évènement ? Je m'en occupe !
+                            </h3>
+                            <p class="excert">
+                                MCSE boot camps have its supporters and its detractors. Some people do not understand
+                                why you
+                                should have to spend money on boot camp when you can get the MCSE study materials
+                                yourself at a
+                                fraction.
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section class="post-content-area single-post-area">
+        <div class="container">
+            <div class="row row-menu">
+                <div class="col-lg-8 posts-list">
+                    <div class="comment-form">
+                        <h4>Contactez le food truck</h4>
+                        {{ form_start(ContactForm) }}
+                        <div class="form-group form-inline">
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="fadeIn second">
+                                    {{ form_label (ContactForm.nom) }}
+                                </div>
+                                <div class="fadeIn second">
+                                    {{ form_widget(ContactForm.nom) }}
+                                </div>
+                                <div class="erreur">
+                                    {{ form_errors(ContactForm.nom) }}
+                                </div>
+
+                                <div class="fadeIn second">
+                                    {{ form_label(ContactForm.prenom) }}
+                                </div>
+                                <div class="fadeIn second">
+                                    {{ form_widget(ContactForm.prenom) }}
+                                </div>
+                                <div class="erreur">
+                                    {{ form_errors(ContactForm.prenom) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="fadeIn second">
+                                    {{ form_label(ContactForm.email) }}
+                                </div>
+                                <div class="fadeIn second">
+                                    {{ form_widget(ContactForm.email) }}
+                                </div>
+                                <div class="erreur">
+                                    {{ form_errors(ContactForm.email) }}
+                                </div>
+                                <div class="fadeIn second">
+                                    {{ form_label(ContactForm.telephone) }}
+                                </div>
+                                <div class="fadeIn second">
+                                    {{ form_widget(ContactForm.telephone) }}
+                                </div>
+                                <div class="erreur">
+                                    {{ form_errors(ContactForm.telephone) }}
+                                </div>
+                            </div>
+
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="fadeIn second">
+                                        <label>Objet :</label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <select class="custom-select fadeIn second" id="evenement" name="evenement">
+                                            <option value="mariage">Mariage</option>
+                                            <option value="CE">CE</option>
+                                            <option value="retour de mariage">Retour de mariage</option>
+                                            <option value="Anniversaire">Anniversaire</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="col-12">
+                            <div class="common-textarea ">
+                                {{ form_label(ContactForm.message) }}
+                            </div>
+                            <div class="common-textarea ">
+                                {{ form_widget(ContactForm.message) }}
+                            </div>
+                            <div class="erreur">
+                                {{ form_errors(ContactForm.message) }}
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="g-recaptcha col-md- offset-3 captchaContact"
+                             data-sitekey="6LetZbEUAAAAAAJouI08x5JV_6EQTiWLowVAAAwr"></div>
+                        <div class="row-contact">
+                            <button class="btn btn-primary mb-3" type="submit">Valider</button>
+                            <a type="button" href="{{ path('main') }}" class="btn btn-primary mb-3">Retour</a>
+
+                        </div>
+                        {{ form_end(ContactForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+
+
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+{% endblock %}

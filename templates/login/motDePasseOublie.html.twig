@@ -1,0 +1,40 @@
+{% extends 'baselog.html.twig' %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Réinitialisation</h5>
+    </div>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <div class="row-login">
+
+
+                    <a class="btn btn-primary mt-2 mb-3 btn-login "  href="{{ path('login') }}"
+                        id="loginjs">Connexion</a>
+                    <a class="btn btn-primary mt-2  mb-3 btn-login"  href="{{ path('register') }}">S'inscrire</a>
+                    <h5>Réinitialisation de votre mot de passe</h5>
+                </div>
+
+            </div>
+
+            <!-- Login Form -->
+            <div class="loginjs">
+                <form method="post">
+                    <input type="email" name="email" id="inputEmail" class="fadeIn second" placeholder="Email" required autofocus>
+                    <button class="btn btn-primary mb-3" name="submit" type="submit">Valider</button>
+                </form>
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="{{ path ('motDePasseOublie') }}">Mot de passe oublié?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'baselog.html.twig' %}
+
+{% block title %} register {% endblock %}
+
+{% block main %}
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Inscription</h5>
+    </div>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <div class="row-login ">
+
+
+                    <a class="btn btn-primary mt-2 mb-3 btn-login "  href="{{ path('login') }}">Connexion</a>
+                    <a class="btn btn-primary mt-2  mb-3 btn-login" href="">S'inscrire</a>
+
+                    {{ form_start(inscrireForm) }}
+                    <div class="fadeIn second">
+                        {{ form_label (inscrireForm.username) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_widget(inscrireForm.username) }}
+                    </div>
+                    <div class="erreur">
+                        {{ form_errors(inscrireForm.username) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_label(inscrireForm.email) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_widget(inscrireForm.email) }}
+                    </div>
+                    <div class="erreur">
+                        {{ form_errors(inscrireForm.email) }}
+                    </div>
+
+                    <div class="fadeIn second">
+                        {{ form_label(inscrireForm.password) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_widget(inscrireForm.password) }}
+                    </div>
+                    <div class="erreur">
+                        {{ form_errors(inscrireForm.password) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_label(inscrireForm.telephone) }}
+                    </div>
+                    <div class="fadeIn second">
+                        {{ form_widget(inscrireForm.telephone) }}
+                    </div>
+                    <div class="erreur">
+                        {{ form_errors(inscrireForm.telephone) }}
+                    </div>
+                    <div>
+                        <input type="checkbox" name="quote-request-cgu" required> J'accepte les
+                        <a href="{{ path('cgv') }}" target="_blank">conditions générales de ventes et d'utilisation</a>
+
+                    </div>
+                    <br>
+                    <div class="g-recaptcha recaptcha" data-sitekey="6LetZbEUAAAAAAJouI08x5JV_6EQTiWLowVAAAwr"></div>
+                    <div class="row-login" >
+                        <button class="btn btn-primary mt-2  mb-3 btn-login" type="submit" name="bt-submit" >Valider</button>
+                    </div>
+
+                    {{ form_end(inscrireForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+{% endblock %}

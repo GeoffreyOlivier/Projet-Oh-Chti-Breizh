@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title product.nom %}
+
+{% block main %}
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Détail</h5>
+    </div>
+
+
+    <section class="section-banner">
+        <div class="container row-login menus">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row  no-gutters">
+                    <div class="col-md-4">
+                        <img class="card-img-top image-menu" src="{{ asset("uploads/" ~ menu.image) }}" height="200"
+                             alt="{{ menu.nom }}"/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ menu.nom }}</h5>
+                            <p class="card-text">{{ menu.description  | nl2br }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">{{ menu.formatPrice }} €</small>
+                            </p>
+                            <form action="{{ path('panier.ajout', {'id': menu.id} ) }}" method="get">
+                                Quantité <input type="number" style="width: 30%" max="99" min="1" name="qte" value="1"/>
+                                </p>
+                                <p class="card-text">
+                                    <select class="custom-select fadeIn second" name="name">
+                                        {% for sauce in sauce %}
+                                            <option value="{{ sauce.nom }}">{{ sauce.nom }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </p>
+                                <p class="card-text">
+                                    <button class="btn btn-success btn-lg">Au panier!</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+

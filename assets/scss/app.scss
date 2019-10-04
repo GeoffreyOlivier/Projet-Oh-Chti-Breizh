@@ -1,0 +1,16 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+.image-style {
+  border-radius: 4px;
+  width: 150px;
+}
+.image-style-thumb {
+  border-radius: 4px;
+  width: 40px;
+}
+.navigator-center {
+  float:none;
+  margin:0 auto;
+  display: block;
+  text-align: center;
+}

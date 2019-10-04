@@ -1,0 +1,33 @@
+<div class="card card-custom text-center col-lg-6 col-md-12" style="width: 18rem;">
+    <p class="typeAndPrice"> Prix:<br><em>{{ article.prix }} €</em></p>
+    <img src="{{ asset("uploads/" ~ article.photo) }}" class="card-img-top image-menu" alt="...">
+    <div class="card-body">
+        <h4 class="card-title text-align">{{ article.nom }} </h4>
+    <h6> {{ article.description }}</h6>
+        <a class="btn btn-primary" role="button"  href="{{ path('menu.show', {id: article.id , slug: article.slug}) }}">Details...</a>
+    </div>
+</div>
+
+
+
+
+
+{#<div class="col-3">#}
+{#    <div class="car text-center" >#}
+{#        <div style="border-style: groove;background-color: white" >#}
+{#            <img  class="image-style" src="{{ asset("images/") ~ product.nom }}.jpg" height="200" alt="{{ product.nom }}" />#}
+{#            <div class="card-body" style="background-color: #F5F5F5">#}
+{#                <h5 class="card-title">#}
+{#                    <a id="produits" href="#">{{ product.nom }}</a>#}
+{#                </h5>#}
+{#                <p class="card-text">#}
+{#                    {{ product.description}}#}
+{#                </p>#}
+{#                <div class="text-danger" style="font-size: 2em">{{ product.getFormatPrice }} €</div>#}
+{#                <p class="card-text">#}
+{#                    <a class="btn btn-primary" role="button"  href="{{ path('menu.show', {id: product.id , slug: product.slug}) }}">Details...</a>#}
+{#                </p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div></br>#}
+{#</div>#}

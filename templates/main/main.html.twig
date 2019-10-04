@@ -1,0 +1,253 @@
+{% extends ('base.html.twig') %}
+{% block title %}Oh ch'ti breizh !{% endblock %}
+
+{% block main %}
+
+    <div class="banner-menu container-fluid">
+        <h5 class="h5-custom menu ">Accueil</h5>
+    </div>
+
+    <!-- Start home-about Area -->
+    <section class="home-about-area section-gap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <h1>A propos du food truck</h1>
+                    <p>
+                        Who are in extremely love with eco friendly system. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <a href="{{ path("contact") }}" class="primary-btn">Me contacter</a>
+                </div>
+                <div class="col-lg-6 home-about-right">
+                    <img class="img-fluid" src="img/camion.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End home-about Area -->
+
+    <!-- Start map Area -->
+<div class="nav nav-pills justify-content-center ftco-animate" id="v-pills-tab" role="tablist"
+     aria-orientation="vertical">
+    <a class="nav-link py-3 px-4 active " id="photo1" data-toggle="pill" href="#v-pills-profile" role="tab"
+       aria-controls="v-pills-profile" aria-selected="false"><span class="flaticon-cutlery"></span>Mardi</a>
+    <a class="nav-link py-3 px-4" id="photo2" data-toggle="pill" href="#v-pills-messages" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Mercredi</a>
+    <a class="nav-link py-3 px-4" id="photo3" data-toggle="pill" href="#v-pills-messages" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Jeudi</a>
+    <a class="nav-link py-3 px-4" id="photo4" data-toggle="pill" href="#v-pills-messages" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Vendredi</a>
+    <a class="nav-link py-3 px-4  " id="photo5" data-toggle="pill" href="#v-pills-home" role="tab"
+       aria-controls="v-pills-home" aria-selected="true"><span class="menu"></span>Samedi</a>
+</div>
+    <section class="home-about-area section-gap imageQuery" id="mardi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <img class="img-fluid" src="{{ asset('img/mardi.png') }}" alt="">
+                </div>
+
+
+                <div class="col-lg-6 home-about-right">
+                    <h1>Aujourd'hui je suis situé à Chantepie !</h1>
+                    <p>
+                        Adresse: 3 Rue du Moulin, 35135 Chantepie
+                    </p>
+                    <a href="{{ path("menu") }}" class="primary-btn">Le menu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="home-about-area section-gap imageQuery" id="mercredi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <img class="img-fluid" src="{{ asset('img/mercrediVendredi.png') }}" alt="">
+                </div>
+
+
+                <div class="col-lg-6 home-about-right">
+                    <h1>Aujourd'hui je suis situé à Chartres-De-Bretagne !</h1>
+                    <p>
+                        Adresse: ZAC de, La Conterie, 8 Rue Léo Lagrange, 35131 Chartres-de-Bretagne
+                    </p>
+                    <a href="{{ path("menu") }}" class="primary-btn">Le menu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="home-about-area section-gap imageQuery" id="jeudi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <img class="img-fluid" src="{{ asset('img/jeudi.png') }}" alt="">
+                </div>
+
+
+                <div class="col-lg-6 home-about-right">
+                    <h1>Aujourd'hui je suis situé à Bruz !</h1>
+                    <p>
+                       Adresse: Rue Blaise Pascal, 35170 Bruz
+                    </p>
+                    <a href="{{ path("menu") }}" class="primary-btn">Le menu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="home-about-area section-gap imageQuery" id="vendredi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <img class="img-fluid" src="{{ asset('img/mercrediVendredi.png') }}" alt="">
+                </div>
+
+
+                <div class="col-lg-6 home-about-right">
+                    <h1>Aujourd'hui je suis situé à Chartres-De-Bretagne</h1>
+                    <p>
+                        Adresse: ZAC de, La Conterie, 8 Rue Léo Lagrange, 35131 Chartres-de-Bretagne
+                    </p>
+                    <a href="{{ path("menu") }}" class="primary-btn">Le menu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="home-about-area section-gap imageQuery" id="samedi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left">
+                    <img class="img-fluid" src="{{ asset('img/Samedi.png') }}" alt="">
+                </div>
+
+
+                <div class="col-lg-6 home-about-right">
+                    <h1>Aujourd'hui je suis situé à Etrelles !</h1>
+                    <p>
+                        Adresse: Webhelp, D110, 35370 Étrelles
+                    </p>
+                    <a href="{{ path("menu") }}" class="primary-btn">Le menu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End map Area -->
+    <!-- Start menu Area -->
+    <section class="gallery-area section-gap" id="gallery">
+        <div class="container">
+            <div class="filters-content">
+                <div class="row grid">
+                    <div class="col-lg-4 col-md-6 col-sm-6 all breakfast">
+                        <div class="single-gallery">
+                            <img class="img-fluid" src="img/menu1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 all dinner">
+                        <div class="single-gallery">
+                            <img class="img-fluid" src="img/menu2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 all budget-meal">
+                        <div class="single-gallery">
+                            <img class="img-fluid" src="img/menu3.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="text-align">
+                Pas envie de faire la queue ? Vous pouvez <a href="{{ path("menu") }}" >commander</a> sur le site et payer au camion !
+            </p>
+
+        </div>
+
+    </section>
+    <!-- End menu-area Area -->
+
+    <!-- Start reservation Area -->
+    <section class="reservation-area section-gap relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6 reservation-left">
+                    <h1 class="text-white">Vous cherchez quelqu'un pour nourrir vos
+                        invités pour un événement ? Je m'en occupe</h1>
+                    <p class="text-white pt-20">
+                        Réception de mariage, CE, retour de mariage, anniversaire, etc..
+                    </p>
+                </div>
+                <div class="col-lg-5 reservation-right">
+                    <form class="form-wrap text-center" action="#">
+                        <input type="text" class="form-control" name="name" placeholder="Votre nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre nom'" >
+                        <input type="email" class="form-control" name="email" placeholder="Votre adresse mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre adresse mail'" >
+                        <input type="text" class="form-control" name="phone" placeholder="Numéro de téléphone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numéro de téléphone'" >
+                        <input type="text" class="form-control date-picker" name="date" placeholder="Date de l'évènement" onfocus="this.placeholder = ''" onblur="this.placeholder = 'La date de l évenement'" >
+
+                        <button class="primary-btn text-uppercase mt-20">Réserver / informations </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End reservation Area -->
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            $('#mardi').show();
+            $('#mercredi').hide();
+            $('#jeudi').hide();
+            $('#vendredi').hide();
+            $('#samedi').hide();
+
+            $("#photo1").click(function () {
+                $('#mercredi').hide();
+                $('#jeudi').hide();
+                $('#vendredi').hide();
+                $('#samedi').hide();
+                $('#mardi').show();
+            });
+            $("#photo2").click(function () {
+                    $('#mardi').hide();
+                    $('#jeudi').hide();
+                    $('#vendredi').hide();
+                    $('#samedi').hide();
+                    $('#mercredi').show();
+            });
+            $("#photo3").click(function () {
+                        $('#mardi').hide();
+                        $('#mercredi').hide();
+                        $('#vendredi').hide();
+                        $('#samedi').hide();
+                        $('#jeudi').show();
+            });
+            $("#photo4").click(function () {
+                            $('#mardi').hide();
+                            $('#mercredi').hide();
+                            $('#jeudi').hide();
+                            $('#samedi').hide();
+                            $('#vendredi').show();
+            });
+            $("#photo5").click(function () {
+                    $('#mardi').hide();
+                    $('#mercredi').hide();
+                    $('#jeudi').hide();
+                    $('#vendredi').hide();
+                    $('#samedi').show();
+            });
+
+        });
+
+
+    </script>
+
+
+
+{% endblock %}

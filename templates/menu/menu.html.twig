@@ -1,0 +1,198 @@
+{% extends 'base.html.twig' %}
+
+
+{% block main %}
+    {#        start banner noir#}
+<div class="banner-menu container-fluid">
+    <h5 class="h5-custom menu ">Menu</h5>
+</div>
+{#        end banner noir#}
+<div class="nav nav-pills justify-content-center ftco-animate" id="v-pills-tab" role="tablist"
+     aria-orientation="vertical">
+    <a class="nav-link py-3 px-4 active" id="menus" data-toggle="pill" href="#menus" role="tab"
+       aria-controls="v-pills-profile" aria-selected="false"><span class="flaticon-cutlery"></span>Menu</a>
+    <a class="nav-link py-3 px-4" id="sandwich" data-toggle="pill" href="#sandwich" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Sandwich</a>
+    <a class="nav-link py-3 px-4" id="frite" data-toggle="pill" href="#frite" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Frite</a>
+    <a class="nav-link py-3 px-4" id="boisson" data-toggle="pill" href="#boisson" role="tab"
+       aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Boisson</a>
+    <a class="nav-link py-3 px-4  " id="dessert" data-toggle="pill" href="#dessert" role="tab"
+       aria-controls="v-pills-home" aria-selected="true"><span class="menu"></span>Dessert</a>
+</div>
+{#    start menu-------------------------------------------------------------------------------------------------------------- bzh#}
+<section class="section-banner">
+    <div class="container  menus">
+        <div class="row row-menu">
+            {% for Menu in Menu %}
+                <div class="card card-custom text-center col-lg-6 col-md-12" style="width: 18rem;">
+                    <p class="typeAndPrice"> Prix:<br><em>{{ menu.prix }} €</em></p>
+                    <p class="img-region">
+                        {% if menu.region == 1 %}
+                            <img src="img/logobzh.png" alt="lion">
+                        {% elseif menu.region == 2 %}
+                            <img src="img/logolion.png" alt="lion">
+                        {% endif %}
+                    </p>
+                    <img src="{{ asset("uploads/" ~ menu.image) }}" class="card-img-top image-menu" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title text-align">{{ menu.nom }} </h4>
+                        {{ menu.description }}<br>
+                        <a class="btn btn-primary btn-menu  " role="button"
+                           href="{{ path('menu.show', {id: menu.id , slug: menu.slug} ) }}">Details...</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {#    end menu bzh#}
+    {#    start sandwich -------------------------------------------------------------------------------------------------------------- ch'ti#}
+    <section class="section-banner">
+        <div class="container sandwich">
+            <div class="row row-menu">
+                {% for sandwich in sandwich %}
+                    <div class="card card-custom text-center col-lg-6 col-md-12" style="width: 18rem;">
+                        <p class="typeAndPrice"> Prix:<br><em>{{ sandwich.prix }} €</em></p>
+                        <p class="img-region">
+                            {% if sandwich.region == 1 %}
+                                <img src="img/logobzh.png" alt="lion">
+                            {% elseif sandwich.region == 2 %}
+                                <img src="img/logolion.png" alt="lion">
+                            {% endif %}
+                        </p>
+                        <img src="{{ asset("uploads/" ~ sandwich.image) }}" class="card-img-top image-menu"
+                             alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title text-align">{{ sandwich.nom }}</h4>
+                            {{ sandwich.description }}<br>
+                            <a class="btn btn-primary" role="button"
+                               href="{{ path('menu.show', {id: sandwich.id , slug: sandwich.slug}) }}">Details...</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {#    end sandwich #}
+    {#    start sandwich -------------------------------------------------------------------------------------------------------------- ch'ti#}
+    <section class="section-banner">
+        <div class="container frite">
+            <div class="row row-menu">
+                {% for frite in frite %}
+                    <div class="card card-custom text-center col-lg-6 col-md-12" style="width: 18rem;">
+                        <p class="typeAndPrice"> Prix:<br><em>{{ frite.prix }} €</em></p>
+                        <p class="img-region">
+                            {% if frite.region == 1 %}
+                                <img src="img/logobzh.png" alt="lion">
+                            {% elseif frite.region == 2 %}
+                                <img src="img/logolion.png" alt="lion">
+                            {% endif %}
+                        </p>
+                        <img src="{{ asset("uploads/" ~ frite.image) }}" class="card-img-top image-menu"
+                             alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title text-align">{{ frite.nom }}</h4>
+                            {{ frite.description }}<br>
+                            <a class="btn btn-primary" role="button"
+                               href="{{ path('menu.show', {id: frite.id , slug: frite.slug}) }}">Details...</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {#    end sandwich #}
+    {#    start boisson -------------------------------------------------------------------------------------------------------------- ch'ti#}
+    <section class="section-banner">
+        <div class="container boisson">
+            <div class="row row-menu">
+                {% for boisson in boisson %}
+                    <div class="card card-custom text-center col-lg-3 col-md-12" style="width: 18rem;">
+                        <p class="typeAndPrice"> Prix:<br><em>{{ boisson.prix }} €</em></p>
+
+                        <img src="{{ asset("uploads/" ~ boisson.image) }}" class="card-img-top image-menu" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title text-align">{{ boisson.nom }}</h4>
+                            <a class="btn btn-primary" role="button"
+                               href="{{ path('menu.show', {id: boisson.id , slug: boisson.slug}) }}">Details...</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {#    end boisson bzh#}
+    {#    start dessert -------------------------------------------------------------------------------------------------------------- ch'ti#}
+    <section class="section-banner">
+        <div class="container dessert">
+            <div class="row row-menu">
+                {% for dessert in dessert %}
+                    <div class="card card-custom text-center col-lg-3 col-md-12" style="width: 18rem;">
+                        <p class="typeAndPrice"> Prix:<br><em>{{ dessert.prix }} €</em></p>
+                        <p class="img-region">
+                            {% if dessert.region == 1 %}
+                                <img src="img/logobzh.png" alt="lion">
+                            {% elseif dessert.region == 2 %}
+                                <img src="img/logolion.png" alt="lion">
+                            {% endif %}
+                        </p>
+                        <img src="{{ asset("uploads/" ~ dessert.image) }}" class="card-img-top image-menu" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title text-align">{{ dessert.nom }}</h4>
+                            {{ dessert.description }}<br>
+                            <a class="btn btn-primary" role="button"
+                               href="{{ path('menu.show', {id: dessert.id , slug: dessert.slug}) }}">Details...</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <script>
+
+        $(document).ready(function () {
+
+            $('.sandwich').hide();
+            $('.frite').hide();
+            $('.boisson').hide();
+            $('.dessert').hide();
+            $('.menus').show();
+
+            $("#menus").click(function () {
+                $('.sandwich').hide();
+                $('.frite').hide();
+                $('.boisson').hide();
+                $('.dessert').hide();
+                $('.menus').show();
+            });
+            $("#sandwich").click(function () {
+                $('.menus').hide();
+                $('.frite').hide();
+                $('.boisson').hide();
+                $('.dessert').hide();
+                $('.sandwich').show();
+            });
+            $("#frite").click(function () {
+                $('.menus').hide();
+                $('.sandwich').hide();
+                $('.boisson').hide();
+                $('.dessert').hide();
+                $('.frite').show();
+            });
+            $("#dessert").click(function () {
+                $('.menus').hide();
+                $('.sandwich').hide();
+                $('.frite').hide();
+                $('.boisson').hide();
+                $('.dessert').show();
+            });
+            $("#boisson").click(function () {
+                $('.menus').hide();
+                $('.sandwich').hide();
+                $('.frite').hide();
+                $('.dessert').hide();
+                $('.boisson').show();
+            });
+        });
+    </script>
+    {% endblock %}
