@@ -27,8 +27,6 @@ class PanierController extends AbstractController
     /**
      * @param ProductRepository $repository
      */
-
-
     public function __construct(ProductRepository $repository)
     {
         $this->repository = $repository;

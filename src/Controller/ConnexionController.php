@@ -18,8 +18,7 @@ use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 class ConnexionController extends AbstractController
 {
     /**
-     * on nomme la route login car dans le fichier
-     * security.yaml on a login_path: login
+     * on nomme la route login car dans le fichier security.yaml on a login_path: login
      * @Route("/login", name="login")
      */
     public function login()
