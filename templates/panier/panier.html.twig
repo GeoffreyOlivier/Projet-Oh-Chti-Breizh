@@ -52,7 +52,7 @@
                                     </td>
                                     <td>{{ (product.prix * panier[product.id]) }} €</td>
                                 </tr>
-
+                                {% set somme = somme + product.prix * panier[product.id] %}
                             </form>
                         </div>
 
