@@ -134,18 +134,38 @@ class PanierController extends AbstractController
         $panier = $session->get('panier');
         if (array_key_exists($id, $panier)) {
             if ($request->query->get('qte') != null)
-                $panier[$id] = $request->query->get('qte');
+                $panier[$id]  += $request->query->get('qte');
         } else {
-            if ($request->query->get('qte') != null)
                 $panier[$id] = $request->query->get('qte');
-            else
-                $panier[$id] = 1;
+
             $this->addFlash('success', 'Article ajouté avec succès !');
         }
         $session->set('panier', $panier);
         return $this->redirect($this->generateUrl('panier'));
     }
 
+    /**
+     * @Route("/ajoutpanier/{id}", name="ajout.panier")
+     * @param SessionInterface $session
+     * @param Request $request
+     * @param $id
+     * @return Response
+     */
+    public function ajout_panier(SessionInterface $session, Request $request, $id)
+    {
+        if (!$session->has('panier'))
+            $session->set('panier', array());
+        $panier = $session->get('panier');
+        if (array_key_exists($id, $panier)) {
+            if ($request->query->get('qte') != null)
+                $panier[$id] = $request->query->get('qte');
+        }
+            $this->addFlash('success', 'Article ajouté avec succès !');
+
+        $session->set('panier', $panier);
+
+        return $this->redirect($this->generateUrl('panier'));
+    }
     /**
      * @Route("/panier}", name="panier")
      * @param Request $request

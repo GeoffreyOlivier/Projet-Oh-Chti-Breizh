@@ -42,17 +42,18 @@
                             <h6><strong>{{ product.prix }} €<span class="text-muted">x</span></strong></h6>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6">
-                            <form  action="{{ path('panier.ajout',{"id": product.id}) }}"  method="get">
+                            <form  action="{{ path('ajout.panier',{"id": product.id}) }}"  method="get">
                                 <tr>
 
                                     <td class="form-inline">
 
                                         <input  type="number" style="width: 100%" max="10" min="1" name="qte" value="{{  panier[product.id] }}" onchange="this.form.submit()"/>
-                                        &nbsp;<a href="{{ path('panier.suppArticle',{"id": product.id}) }}"><i  class="fa fa-trash"></i></a>
+                                        &nbsp;
+                                        <a href="{{ path('panier.suppArticle',{"id": product.id}) }}"><i  class="fa fa-trash"></i></a>
                                     </td>
                                     <td>{{ (product.prix * panier[product.id]) }} €</td>
                                 </tr>
-
+                                {% set somme = somme + product.prix * panier[product.id] %}
                             </form>
                         </div>
 
@@ -71,7 +72,7 @@
                     <a class="btn btn-primary" role="button"  href="{{ path('panier.enregistrement') }}">Valider</a>
                     {% endif %}
                     <div class="pull-right" style="margin: 5px">
-                        Total price: <b>{{ somme }} €</b>
+                        Total : <b>{{ somme }} €</b>
                     </div>
                 </div>
             </div>

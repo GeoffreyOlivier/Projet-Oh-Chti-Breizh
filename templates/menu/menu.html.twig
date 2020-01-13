@@ -24,7 +24,7 @@
 <section class="section-banner">
     <div class="container  menus">
         <div class="row row-menu">
-            {% for Menu in Menu %}
+            {% for menu in menu %}
                 <div class="card card-custom text-center col-lg-6 col-md-12" style="width: 18rem;">
                     <p class="typeAndPrice"> Prix:<br><em>{{ menu.prix }} €</em></p>
                     <p class="img-region">
@@ -38,8 +38,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-align">{{ menu.nom }} </h4>
                         {{ menu.description }}<br>
-                        <a class="btn btn-primary btn-menu  " role="button"
-                           href="{{ path('menu.show', {id: menu.id , slug: menu.slug} ) }}">Details...</a>
+                        <a class="btn btn-primary" role="button"  href="{{ path('menu.show', {id: menu.id , slug: menu.slug}) }}">Détails & quantité</a>
                     </div>
                 </div>
             {% endfor %}
